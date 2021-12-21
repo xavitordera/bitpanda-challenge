@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		49CDCCBB27722D2E00C17603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBA27722D2E00C17603 /* AppDelegate.swift */; };
 		49CDCCBD27722D2F00C17603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBC27722D2E00C17603 /* SceneDelegate.swift */; };
-		49CDCCBF27722D2F00C17603 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBE27722D2F00C17603 /* ViewController.swift */; };
-		49CDCCC227722D2F00C17603 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCC027722D2F00C17603 /* Main.storyboard */; };
+		49CDCCBF27722D2F00C17603 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBE27722D2F00C17603 /* TabBarViewController.swift */; };
 		49CDCCC427722D3200C17603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCC327722D3200C17603 /* Assets.xcassets */; };
-		49CDCCC727722D3200C17603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCC527722D3200C17603 /* LaunchScreen.storyboard */; };
 		49CDCCD227722D3200C17603 /* BitpandaChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCD127722D3200C17603 /* BitpandaChallengeTests.swift */; };
 		49CDCCDC27722D3200C17603 /* BitpandaChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCDB27722D3200C17603 /* BitpandaChallengeUITests.swift */; };
 		49CDCCDE27722D3300C17603 /* BitpandaChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCDD27722D3200C17603 /* BitpandaChallengeUITestsLaunchTests.swift */; };
+		49CDCCEC27722E9200C17603 /* Mastrerdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCEB27722E9200C17603 /* Mastrerdata.json */; };
+		49CDCCF627723CB300C17603 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCF527723CB300C17603 /* WalletsViewController.swift */; };
+		49CDCCF827723CDD00C17603 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCF727723CDD00C17603 /* AssetsViewController.swift */; };
+		49CDCCFA27723F9700C17603 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCF927723F9700C17603 /* Launch Screen.storyboard */; };
+		49CDCCFC2772412A00C17603 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCFB2772412A00C17603 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +42,19 @@
 		49CDCCB727722D2E00C17603 /* BitpandaChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitpandaChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDCCBA27722D2E00C17603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49CDCCBC27722D2E00C17603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		49CDCCBE27722D2F00C17603 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		49CDCCC127722D2F00C17603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49CDCCBE27722D2F00C17603 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		49CDCCC327722D3200C17603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		49CDCCC627722D3200C17603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49CDCCC827722D3200C17603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CDCCCD27722D3200C17603 /* BitpandaChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitpandaChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDCCD127722D3200C17603 /* BitpandaChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitpandaChallengeTests.swift; sourceTree = "<group>"; };
 		49CDCCD727722D3200C17603 /* BitpandaChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitpandaChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDCCDB27722D3200C17603 /* BitpandaChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitpandaChallengeUITests.swift; sourceTree = "<group>"; };
 		49CDCCDD27722D3200C17603 /* BitpandaChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitpandaChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		49CDCCEB27722E9200C17603 /* Mastrerdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mastrerdata.json; sourceTree = "<group>"; };
+		49CDCCF527723CB300C17603 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
+		49CDCCF727723CDD00C17603 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
+		49CDCCF927723F9700C17603 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		49CDCCFB2772412A00C17603 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,14 @@
 		49CDCCB927722D2E00C17603 /* BitpandaChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				49CDCCF22772311C00C17603 /* Models */,
+				49CDCCF1277230DD00C17603 /* Repositories */,
+				49CDCCF0277230D400C17603 /* ViewModels */,
+				49CDCCEF277230C600C17603 /* Views */,
+				49CDCCEA27722E7300C17603 /* Resources */,
 				49CDCCBA27722D2E00C17603 /* AppDelegate.swift */,
 				49CDCCBC27722D2E00C17603 /* SceneDelegate.swift */,
-				49CDCCBE27722D2F00C17603 /* ViewController.swift */,
-				49CDCCC027722D2F00C17603 /* Main.storyboard */,
-				49CDCCC327722D3200C17603 /* Assets.xcassets */,
-				49CDCCC527722D3200C17603 /* LaunchScreen.storyboard */,
-				49CDCCC827722D3200C17603 /* Info.plist */,
+				49CDCCF927723F9700C17603 /* Launch Screen.storyboard */,
 			);
 			path = BitpandaChallenge;
 			sourceTree = "<group>";
@@ -125,6 +132,48 @@
 				49CDCCDD27722D3200C17603 /* BitpandaChallengeUITestsLaunchTests.swift */,
 			);
 			path = BitpandaChallengeUITests;
+			sourceTree = "<group>";
+		};
+		49CDCCEA27722E7300C17603 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49CDCCEB27722E9200C17603 /* Mastrerdata.json */,
+				49CDCCC827722D3200C17603 /* Info.plist */,
+				49CDCCC327722D3200C17603 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		49CDCCEF277230C600C17603 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49CDCCBE27722D2F00C17603 /* TabBarViewController.swift */,
+				49CDCCF527723CB300C17603 /* WalletsViewController.swift */,
+				49CDCCF727723CDD00C17603 /* AssetsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49CDCCF0277230D400C17603 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		49CDCCF1277230DD00C17603 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		49CDCCF22772311C00C17603 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49CDCCFB2772412A00C17603 /* Models.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +261,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 49CDCCAE27722D2E00C17603;
 			productRefGroup = 49CDCCB827722D2E00C17603 /* Products */;
@@ -231,9 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CDCCC727722D3200C17603 /* LaunchScreen.storyboard in Resources */,
+				49CDCCFA27723F9700C17603 /* Launch Screen.storyboard in Resources */,
+				49CDCCEC27722E9200C17603 /* Mastrerdata.json in Resources */,
 				49CDCCC427722D3200C17603 /* Assets.xcassets in Resources */,
-				49CDCCC227722D2F00C17603 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +306,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CDCCBF27722D2F00C17603 /* ViewController.swift in Sources */,
+				49CDCCBF27722D2F00C17603 /* TabBarViewController.swift in Sources */,
+				49CDCCF627723CB300C17603 /* WalletsViewController.swift in Sources */,
 				49CDCCBB27722D2E00C17603 /* AppDelegate.swift in Sources */,
+				49CDCCFC2772412A00C17603 /* Models.swift in Sources */,
+				49CDCCF827723CDD00C17603 /* AssetsViewController.swift in Sources */,
 				49CDCCBD27722D2F00C17603 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,25 +346,6 @@
 			targetProxy = 49CDCCD827722D3200C17603 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		49CDCCC027722D2F00C17603 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49CDCCC127722D2F00C17603 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		49CDCCC527722D3200C17603 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49CDCCC627722D3200C17603 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		49CDCCDF27722D3300C17603 /* Debug */ = {
@@ -440,10 +472,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BitpandaChallenge/Info.plist;
+				INFOPLIST_FILE = BitpandaChallenge/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -467,10 +498,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BitpandaChallenge/Info.plist;
+				INFOPLIST_FILE = BitpandaChallenge/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
