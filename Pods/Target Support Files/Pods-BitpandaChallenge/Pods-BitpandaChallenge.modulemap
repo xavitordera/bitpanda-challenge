@@ -1,0 +1,6 @@
+framework module Pods_BitpandaChallenge {
+  umbrella header "Pods-BitpandaChallenge-umbrella.h"
+
+  export *
+  module * { export * }
+}

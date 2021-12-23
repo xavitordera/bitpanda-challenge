@@ -18,6 +18,17 @@ struct DataClass: Codable {
     let attributes: DataAttributes?
 }
 
+// MARK: - Asset
+protocol Asset: Codable {
+    var type: String? { get }
+    var id: String? { get }
+    var attributes: DataAttributes? { get }
+}
+
+protocol Attributes {
+    
+}
+
 // MARK: - DataAttributes
 struct DataAttributes: Codable {
     let cryptocoins, commodities: [Commodity]?
@@ -190,11 +201,11 @@ struct IeoPhaseAttributes: Codable {
 
 // MARK: - EndDateClass
 struct EndDateClass: Codable {
-    let dateIso8601: Date?
+//    let dateIso8601: Date?
     let unix: String?
 
     enum CodingKeys: String, CodingKey {
-        case dateIso8601 = "date_iso8601"
+//        case dateIso8601 = "date_iso8601"
         case unix
     }
 }
