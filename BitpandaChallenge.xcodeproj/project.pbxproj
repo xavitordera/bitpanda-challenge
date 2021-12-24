@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2AABB3084CC1513899E28AEF /* Pods_BitpandaChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6864673F204AEDFA470F1 /* Pods_BitpandaChallenge.framework */; };
 		2FD0CCCE7EB425251D588F53 /* Pods_BitpandaChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727ED16A710837BACDACB460 /* Pods_BitpandaChallengeTests.framework */; };
-		49608EA12774A0640024C481 /* FiatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA02774A0640024C481 /* FiatTableViewCell.swift */; };
+		49608EA12774A0640024C481 /* WalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA02774A0640024C481 /* WalletTableViewCell.swift */; };
 		49608EA32774A07C0024C481 /* CommodityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */; };
 		49608EA9277517210024C481 /* KF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA8277517210024C481 /* KF+Utils.swift */; };
 		49CDCCBB27722D2E00C17603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBA27722D2E00C17603 /* AppDelegate.swift */; };
@@ -24,10 +24,10 @@
 		49CDCCF827723CDD00C17603 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCF727723CDD00C17603 /* AssetsViewController.swift */; };
 		49CDCCFA27723F9700C17603 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCF927723F9700C17603 /* Launch Screen.storyboard */; };
 		49CDCCFC2772412A00C17603 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCFB2772412A00C17603 /* Models.swift */; };
-		49CDCCFE2772AB4100C17603 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCFD2772AB4100C17603 /* SplashViewController.swift */; };
 		49CDCD002773346300C17603 /* AssetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCFF2773346300C17603 /* AssetsViewModel.swift */; };
 		49CF3A6327751F5200FD6B75 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF3A6227751F5200FD6B75 /* UIView+Utils.swift */; };
 		49CF3A652775263A00FD6B75 /* Models+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF3A642775263A00FD6B75 /* Models+Helpers.swift */; };
+		49CF3A692776008800FD6B75 /* WalletsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF3A682776008800FD6B75 /* WalletsViewModel.swift */; };
 		7D2F2E9EE971944D23226770 /* Pods_BitpandaChallenge_BitpandaChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A854ED2D8DA215343EF4D8 /* Pods_BitpandaChallenge_BitpandaChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		038C36BE1F573618DDF162DA /* Pods-BitpandaChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaChallengeTests/Pods-BitpandaChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0C11B79D19D279FCDD392491 /* Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaChallenge-BitpandaChallengeUITests/Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		49608EA02774A0640024C481 /* FiatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTableViewCell.swift; sourceTree = "<group>"; };
+		49608EA02774A0640024C481 /* WalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCell.swift; sourceTree = "<group>"; };
 		49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityTableViewCell.swift; sourceTree = "<group>"; };
 		49608EA8277517210024C481 /* KF+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KF+Utils.swift"; sourceTree = "<group>"; };
 		49CDCCB727722D2E00C17603 /* BitpandaChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitpandaChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,10 +70,10 @@
 		49CDCCF727723CDD00C17603 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		49CDCCF927723F9700C17603 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		49CDCCFB2772412A00C17603 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		49CDCCFD2772AB4100C17603 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		49CDCCFF2773346300C17603 /* AssetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewModel.swift; sourceTree = "<group>"; };
 		49CF3A6227751F5200FD6B75 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		49CF3A642775263A00FD6B75 /* Models+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Helpers.swift"; sourceTree = "<group>"; };
+		49CF3A682776008800FD6B75 /* WalletsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewModel.swift; sourceTree = "<group>"; };
 		5240B96B19326FABD546B111 /* Pods-BitpandaChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaChallenge.release.xcconfig"; path = "Target Support Files/Pods-BitpandaChallenge/Pods-BitpandaChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		53B6864673F204AEDFA470F1 /* Pods_BitpandaChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitpandaChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A854ED2D8DA215343EF4D8 /* Pods_BitpandaChallenge_BitpandaChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitpandaChallenge_BitpandaChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,8 +191,7 @@
 				49CDCCBE27722D2F00C17603 /* TabBarViewController.swift */,
 				49CDCCF527723CB300C17603 /* WalletsViewController.swift */,
 				49CDCCF727723CDD00C17603 /* AssetsViewController.swift */,
-				49CDCCFD2772AB4100C17603 /* SplashViewController.swift */,
-				49608EA02774A0640024C481 /* FiatTableViewCell.swift */,
+				49608EA02774A0640024C481 /* WalletTableViewCell.swift */,
 				49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */,
 			);
 			path = Views;
@@ -202,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				49CDCCFF2773346300C17603 /* AssetsViewModel.swift */,
+				49CF3A682776008800FD6B75 /* WalletsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -490,12 +490,12 @@
 			files = (
 				49CDCCBF27722D2F00C17603 /* TabBarViewController.swift in Sources */,
 				49CDCCF627723CB300C17603 /* WalletsViewController.swift in Sources */,
+				49CF3A692776008800FD6B75 /* WalletsViewModel.swift in Sources */,
 				49CDCCBB27722D2E00C17603 /* AppDelegate.swift in Sources */,
 				49608EA32774A07C0024C481 /* CommodityTableViewCell.swift in Sources */,
-				49608EA12774A0640024C481 /* FiatTableViewCell.swift in Sources */,
+				49608EA12774A0640024C481 /* WalletTableViewCell.swift in Sources */,
 				49CDCCFC2772412A00C17603 /* Models.swift in Sources */,
 				49CDCCF827723CDD00C17603 /* AssetsViewController.swift in Sources */,
-				49CDCCFE2772AB4100C17603 /* SplashViewController.swift in Sources */,
 				49608EA9277517210024C481 /* KF+Utils.swift in Sources */,
 				49CDCCBD27722D2F00C17603 /* SceneDelegate.swift in Sources */,
 				49CF3A6327751F5200FD6B75 /* UIView+Utils.swift in Sources */,

@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class CommodityTableViewCell: UITableViewCell {
+class WalletTableViewCell: UITableViewCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -11,6 +11,13 @@ class CommodityTableViewCell: UITableViewCell {
     }()
 
     private let priceLabel: UILabel = {
+        let label = UILabel()
+        label.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        label.font = UIFont.systemFont(ofSize: 16.0)
+        return label
+    }()
+
+    private let symbolLabel: UILabel = {
         let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         label.font = UIFont.systemFont(ofSize: 16.0)
@@ -31,27 +38,25 @@ class CommodityTableViewCell: UITableViewCell {
         logoView.image = nil
         titleLabel.text = nil
         priceLabel.text = nil
+        backgroundColor = nil
     }
 
-    func configureCell(commodity: Commodity, userInterfaceStyle: UIUserInterfaceStyle) {
-        logoView.kf.setImage(with: commodity.logoImageURL(userInterfaceStyle: userInterfaceStyle),
+    func configureCell(wallet: WalletsViewModel.Wallet, userInterfaceStyle: UIUserInterfaceStyle) {
+        logoView.kf.setImage(with: wallet.logoURL,
                              placeholder: UIImage(systemName: "bitcoinsign.circle"),
                              options: [.processor(SVGImgProcessor())])
-        titleLabel.text = commodity.attributes?.name
-        priceLabel.text = commodity.formattedPrice()
-    }
+        titleLabel.text = wallet.name
+        priceLabel.text = wallet.balance + " " + wallet.symbol
 
-    func configureCell(fiat: Fiat, userInterfaceStyle: UIUserInterfaceStyle) {
-        logoView.kf.setImage(with: fiat.logoImageURL(userInterfaceStyle: userInterfaceStyle),
-                             placeholder: UIImage(systemName: "eurosign.square"),
-                             options: [.processor(SVGImgProcessor())],
-        completionHandler: nil)
-        titleLabel.text = fiat.attributes?.name
-        priceLabel.text = fiat.attributes?.symbol
+        if wallet.isDefault {
+            backgroundColor = .lightGray
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        
 
         let stackViewTitle = UIStackView(arrangedSubviews: [logoView, titleLabel])
         stackViewTitle.distribution = .equalSpacing

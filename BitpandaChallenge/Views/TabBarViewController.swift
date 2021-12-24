@@ -27,25 +27,26 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.isNavigationBarHidden = true
-
+        guard let att = data?.data?.attributes else { return }
         // Create Tab one
-        let tabOne = UINavigationController(rootViewController: AssetsViewController(viewModel: AssetsViewModel(cryptocoins: data?.data?.attributes?.cryptocoins ?? [], commodities: data?.data?.attributes?.commodities ?? [], fiats: data?.data?.attributes?.fiats ?? [])))
-
-        let tabOneBarItem = UITabBarItem(title: "Assets", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
+        let tabOne = UINavigationController(rootViewController: AssetsViewController(viewModel: AssetsViewModel(attributes: att)))
+        let tabOneBarItem = UITabBarItem(title: "Assets",
+                                         image: UIImage(systemName: "bitcoinsign.circle"),
+                                         selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
 
         tabOne.tabBarItem = tabOneBarItem
 
         // Create Tab two
-        let tabTwo = UINavigationController(rootViewController: WalletsViewController())
-        let tabTwoBarItem2 = UITabBarItem(title: "Wallets", image: UIImage(systemName: "bag"), selectedImage: UIImage(systemName: "bag.fill"))
+        let tabTwo = UINavigationController(rootViewController: WalletsViewController(viewModel: WalletsViewModel(dataAttributes: att)))
+        let tabTwoBarItem2 = UITabBarItem(title: "Wallets",
+                                          image: UIImage(systemName: "bag"),
+                                          selectedImage: UIImage(systemName: "bag.fill"))
 
         tabTwo.tabBarItem = tabTwoBarItem2
 
 
         self.viewControllers = [tabOne, tabTwo]
     }
-
 
 }
 

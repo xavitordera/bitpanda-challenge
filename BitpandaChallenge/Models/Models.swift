@@ -18,17 +18,6 @@ struct DataClass: Codable {
     let attributes: DataAttributes?
 }
 
-// MARK: - Asset
-protocol Asset: Codable {
-    var type: String? { get }
-    var id: String? { get }
-    var attributes: DataAttributes? { get }
-}
-
-protocol Attributes {
-    
-}
-
 // MARK: - DataAttributes
 struct DataAttributes: Codable {
     let cryptocoins, commodities: [Commodity]?
