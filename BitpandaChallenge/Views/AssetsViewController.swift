@@ -9,6 +9,19 @@ import UIKit
 
 class AssetsViewController: UITableViewController {
 
+    private let viewModel: AssetsViewModel
+    private let sections: [Sections] = [.list]
+    private enum Sections: Int {
+        case list
+    }
+    private let segmentedControl: UISegmentedControl = {
+        let control = UISegmentedControl(items: ["Cryptocurrencies", "Metals", "Fiats"])
+        control.selectedSegmentIndex = 0
+        control.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+        control.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .touchUpInside)
+        return control
+    }()
+
     init(viewModel: AssetsViewModel) {
         self.viewModel = viewModel
         super.init(style: .insetGrouped)
@@ -17,21 +30,6 @@ class AssetsViewController: UITableViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    let viewModel: AssetsViewModel
-
-    private let sections: [Sections] = [.list]
-    private enum Sections: Int {
-        case list
-    }
-
-    private let segmentedControl: UISegmentedControl = {
-        let control = UISegmentedControl(items: ["Cryptocurrencies", "Metals", "Fiats"])
-        control.selectedSegmentIndex = 0
-        control.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
-        control.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .touchUpInside)
-        return control
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +92,7 @@ class AssetsViewController: UITableViewController {
     func cellForFiat(_ tableView: UITableView, at indexPath: IndexPath) -> CommodityTableViewCell {
         let cell = cellForCommodity(tableView, at: indexPath)
 
-        cell.configureCell(fiat: viewModel.fiats[indexPath.row], userInterfaceStyle: traitCollection.userInterfaceStyle)
+        cell.configureCell(asset: viewModel.fiats[indexPath.row])
 
         return cell
     }
@@ -102,14 +100,14 @@ class AssetsViewController: UITableViewController {
     func cellForMetal(_ tableView: UITableView, at indexPath: IndexPath) -> CommodityTableViewCell {
         let cell = cellForCommodity(tableView, at: indexPath)
 
-        cell.configureCell(commodity: viewModel.metals[indexPath.row], userInterfaceStyle: traitCollection.userInterfaceStyle)
+        cell.configureCell(asset: viewModel.metals[indexPath.row])
 
         return cell
     }
     func cellForCrypto(_ tableView: UITableView, at indexPath: IndexPath) -> CommodityTableViewCell {
         let cell = cellForCommodity(tableView, at: indexPath)
 
-        cell.configureCell(commodity: viewModel.cryptocoins[indexPath.row], userInterfaceStyle: traitCollection.userInterfaceStyle)
+        cell.configureCell(asset: viewModel.cryptocoins[indexPath.row])
 
         return cell
     }

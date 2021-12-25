@@ -1,35 +1,42 @@
-//
-//  ViewController.swift
-//  BitpandaChallenge
-//
-//  Created by Xavier Tordera on 21/12/21.
-//
-
 import UIKit
+import Combine
 
 class TabBarViewController: UITabBarController {
+    private let repository: WelcomeRepositoryProtocol
+    private var cancellable: AnyCancellable?
+    private var welcomeData: WelcomeViewModels?
 
-    lazy var data: Welcome? = {
-        if let path = Bundle.main.path(forResource: "Mastrerdata", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let decoder = JSONDecoder()
-                let jsonPetitions = try decoder.decode(Welcome.self, from: data)
-                return jsonPetitions
-            } catch(let error) {
-                debugPrint(error)
-                return nil
-            }
-        }
-        return nil
-    }()
+    init(repository: WelcomeRepositoryProtocol = WelcomeRepository()) {
+        self.repository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let att = data?.data?.attributes else { return }
+        // show loading state (out of scope)
+
+        cancellable = repository
+            .fetchWelcomeData()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                if case .failure = completion {
+                    // show an error (out of scope)
+                }
+            } receiveValue: { [weak self] value in
+                self?.welcomeData = value
+                self?.setupControllers()
+            }
+    }
+
+    func setupControllers() {
+        guard let welcomeData = welcomeData else { return }
         // Create Tab one
-        let tabOne = UINavigationController(rootViewController: AssetsViewController(viewModel: AssetsViewModel(attributes: att)))
+        let tabOne = UINavigationController(rootViewController: AssetsViewController(viewModel: welcomeData.0))
         let tabOneBarItem = UITabBarItem(title: "Assets",
                                          image: UIImage(systemName: "bitcoinsign.circle"),
                                          selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
@@ -37,7 +44,7 @@ class TabBarViewController: UITabBarController {
         tabOne.tabBarItem = tabOneBarItem
 
         // Create Tab two
-        let tabTwo = UINavigationController(rootViewController: WalletsViewController(viewModel: WalletsViewModel(dataAttributes: att)))
+        let tabTwo = UINavigationController(rootViewController: WalletsViewController(viewModel: welcomeData.1))
         let tabTwoBarItem2 = UITabBarItem(title: "Wallets",
                                           image: UIImage(systemName: "bag"),
                                           selectedImage: UIImage(systemName: "bag.fill"))

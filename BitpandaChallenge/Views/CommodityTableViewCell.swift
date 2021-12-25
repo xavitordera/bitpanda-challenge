@@ -31,23 +31,27 @@ class CommodityTableViewCell: UITableViewCell {
         logoView.image = nil
         titleLabel.text = nil
         priceLabel.text = nil
+        backgroundColor = .systemBackground
     }
 
-    func configureCell(commodity: Commodity, userInterfaceStyle: UIUserInterfaceStyle) {
-        logoView.kf.setImage(with: commodity.logoImageURL(userInterfaceStyle: userInterfaceStyle),
+    func configureCell(asset: AssetsViewModel.Asset) {
+        logoView.kf.setImage(with: asset.logoURL,
                              placeholder: UIImage(systemName: "bitcoinsign.circle"),
                              options: [.processor(SVGImgProcessor())])
-        titleLabel.text = commodity.attributes?.name
-        priceLabel.text = commodity.formattedPrice()
+        titleLabel.text = asset.title
+        priceLabel.text = asset.price
     }
 
-    func configureCell(fiat: Fiat, userInterfaceStyle: UIUserInterfaceStyle) {
-        logoView.kf.setImage(with: fiat.logoImageURL(userInterfaceStyle: userInterfaceStyle),
-                             placeholder: UIImage(systemName: "eurosign.square"),
-                             options: [.processor(SVGImgProcessor())],
-        completionHandler: nil)
-        titleLabel.text = fiat.attributes?.name
-        priceLabel.text = fiat.attributes?.symbol
+    func configureCell(wallet: WalletsViewModel.Wallet) {
+        logoView.kf.setImage(with: wallet.logoURL,
+                             placeholder: UIImage(systemName: "bitcoinsign.circle"),
+                             options: [.processor(SVGImgProcessor())])
+        titleLabel.text = wallet.name
+        priceLabel.text = wallet.balance.formattedPrice(currencyCode: wallet.symbol, precision: wallet.walletType == .fiat ? 2 : 4)
+
+        if wallet.isDefault {
+            backgroundColor = .lightGray
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

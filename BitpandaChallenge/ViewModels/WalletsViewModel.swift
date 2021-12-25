@@ -1,34 +1,35 @@
 import Foundation
 
 final class WalletsViewModel {
-    internal init(dataAttributes: DataAttributes) {
-        self.dataAttributes = dataAttributes
-    }
-    
-    let dataAttributes: DataAttributes
 
-    lazy var cryptoWallets: [Wallet] = {
-        dataAttributes.wallets?.compactMap {
-            $0.toViewModel(from: dataAttributes, isMetal: false, userInterfaceStyle: .dark)
-        } ?? []
+    private let cryptoWallets: [Wallet]
+    private let metalWallets: [Wallet]
+    private let fiatWallets: [Wallet]
+
+    lazy var totalBalance: String? = {
+        var accumlatedBalance = 0.0
+        cryptoWallets.forEach { accumlatedBalance += $0.eurBalance }
+        metalWallets.forEach { accumlatedBalance += $0.eurBalance }
+        fiatWallets.forEach { accumlatedBalance += $0.eurBalance }
+        return String(accumlatedBalance).formattedPrice(precision: 2)
     }()
 
-    lazy var metalWallets: [Wallet] = {
-        dataAttributes.commodityWallets?.compactMap {
-            $0.toViewModel(from: dataAttributes, isMetal: true, userInterfaceStyle: .dark)
-        } ?? []
-    }()
+    lazy var sections: [Section] = [
+        .crypto(cryptoWallets),
+        .metal(metalWallets),
+        .fiat(fiatWallets)
+    ]
 
-    lazy var fiatWallets: [Wallet] = {
-        dataAttributes.fiatwallets?.compactMap {
-            $0.toViewModel(from: dataAttributes, userInterfaceStyle: .dark)
-        } ?? []
-    }()
+    init(cryptoWallets: [WalletsViewModel.Wallet],
+         metalWallets: [WalletsViewModel.Wallet],
+         fiatWallets: [WalletsViewModel.Wallet]) {
+       self.cryptoWallets = cryptoWallets
+       self.metalWallets = metalWallets
+       self.fiatWallets = fiatWallets
+   }
 
-    let sections: [Section] = Section.allCases
-
-    enum Section: CaseIterable {
-        case crypto, metal, fiat
+    enum Section {
+        case crypto([Wallet]), metal([Wallet]), fiat([Wallet])
 
         var sectionTitle: String {
             switch self {
@@ -40,9 +41,17 @@ final class WalletsViewModel {
                 return "Fiats"
             }
         }
+
+        var wallets: [Wallet] {
+            switch self {
+            case .crypto(let wallets), .metal(let wallets), .fiat(let wallets):
+                return wallets
+            }
+        }
     }
 
     struct Wallet {
+        let eurBalance: Double
         let balance: String
         let symbol: String
         let name: String

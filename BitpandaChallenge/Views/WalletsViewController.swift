@@ -9,6 +9,14 @@ import UIKit
 
 class WalletsViewController: UITableViewController {
 
+    private lazy var headerView: WalletHeaderView = {
+        let view = WalletHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+        view.title = viewModel.totalBalance
+        return view
+    }()
+
+    let viewModel: WalletsViewModel
+
     init(viewModel: WalletsViewModel) {
         self.viewModel = viewModel
         super.init(style: .insetGrouped)
@@ -18,58 +26,43 @@ class WalletsViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    let viewModel: WalletsViewModel
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Wallets"
         navigationItem.title = "Wallets"
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        tableView.register(WalletTableViewCell.self, forCellReuseIdentifier: "WalletTableViewCell")
+        tableView.register(CommodityTableViewCell.self, forCellReuseIdentifier: "CommodityTableViewCell")
         tableView.allowsSelection = false
+        tableView.tableHeaderView = headerView
+        headerView.setNeedsLayout()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return viewModel.sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        switch viewModel.sections[section] {
-        case .crypto:
-            return viewModel.cryptoWallets.count
-        case .metal:
-            return viewModel.metalWallets.count
-        case .fiat:
-            return viewModel.fiatWallets.count
-        }
+        viewModel.sections[section].wallets.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var wallet: WalletsViewModel.Wallet {
-            switch viewModel.sections[indexPath.section] {
-            case .crypto:
-                return viewModel.cryptoWallets[indexPath.row]
-            case .metal:
-                return viewModel.metalWallets[indexPath.row]
-            case .fiat:
-                return viewModel.fiatWallets[indexPath.row]
+        let cell: CommodityTableViewCell = {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CommodityTableViewCell", for: indexPath) as? CommodityTableViewCell {
+                return cell
+            } else {
+                let cell = CommodityTableViewCell(style: .default, reuseIdentifier: "CommodityTableViewCell")
+                return cell
             }
-        }
+        }()
 
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "WalletTableViewCell", for: indexPath) as? WalletTableViewCell {
-            cell.configureCell(wallet: wallet, userInterfaceStyle: traitCollection.userInterfaceStyle)
-            return cell
-        } else {
-            let cell = WalletTableViewCell(style: .default, reuseIdentifier: "WalletTableViewCell")
-            cell.configureCell(wallet: wallet, userInterfaceStyle: traitCollection.userInterfaceStyle)
-            return cell
-        }
+        cell.configureCell(wallet: viewModel
+                            .sections[indexPath.section]
+                            .wallets[indexPath.row])
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

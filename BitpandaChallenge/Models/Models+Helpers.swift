@@ -1,37 +1,39 @@
 import Foundation
 import UIKit
+
 extension Commodity {
-    func formattedPrice(locale: Locale = .current) -> String? {
-        let formatter = NumberFormatter()
-        if let price = formatter.number(from: self.attributes?.avgPrice ?? ""),
-           let precision = self.attributes?.precisionForFiatPrice {
-            formatter.numberStyle = .currency
-            formatter.currencyCode = "EUR" // default EUR since this data is not specified
-
-            formatter.locale = locale
-            formatter.maximumFractionDigits = precision
-
-            return formatter.string(from: price)
-        }
-        return nil
-    }
-
-    func logoImageURL(userInterfaceStyle: UIUserInterfaceStyle) -> URL? {
+    func logoImageURL(userInterfaceStyle: UIUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle) -> URL? {
         if userInterfaceStyle == .dark {
             return URL(string: attributes?.logoDark ?? "")
         } else {
             return URL(string: attributes?.logo ?? "")
         }
+    }
+
+    func toViewModel(isMetal: Bool) -> AssetsViewModel.Asset {
+        AssetsViewModel.Asset(title: attributes?.name ?? "",
+                              price: attributes?.avgPrice?.formattedPrice(precision: attributes?.precisionForFiatPrice ?? 2) ?? "",
+                              logoURL: logoImageURL(),
+                              type: isMetal ? .metal : .crypto)
     }
 }
 
 extension Fiat {
-    func logoImageURL(userInterfaceStyle: UIUserInterfaceStyle) -> URL? {
+    func logoImageURL(userInterfaceStyle: UIUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle) -> URL? {
         if userInterfaceStyle == .dark {
             return URL(string: attributes?.logoDark ?? "")
         } else {
             return URL(string: attributes?.logo ?? "")
         }
+    }
+
+    func toViewModel() -> AssetsViewModel.Asset? {
+        guard (attributes?.hasWallets ?? false) else {
+            return nil
+        }
+        return AssetsViewModel.Asset(title: attributes?.name ?? "",
+                                     price: attributes?.symbol ?? "",
+                                     logoURL: logoImageURL(), type: .fiat)
     }
 }
 
@@ -48,40 +50,49 @@ extension DataAttributes {
         commodities?.filter { $0.id == id }.first
     }
 
-//    var totalBalance: Double {
-//        var accumulatedBalance = 0.0
-//        wallets?.forEach({ wallet in
-//            let crypto = getCryptoWithId(wallet.attributes?.cryptocoinID ?? "")
-//            let price = Double(crypto?.attributes?.avgPrice ?? "") ?? 0.0
-//            let balance = Double(wallet.attributes?.balance ?? "") ?? 0.0
-//
-//            accumulatedBalance += price*balance
-//        })
-//
-//        commodityWallets?.forEach({ wallet in
-//            let crypto = getCommodityWithId(wallet.attributes?.cryptocoinID ?? "")
-//            let price = Double(crypto?.attributes?.avgPrice ?? "") ?? 0.0
-//            let balance = Double(wallet.attributes?.balance ?? "") ?? 0.0
-//
-//            accumulatedBalance += price*balance
-//        })
-//
-//        fiatwallets?.forEach({ wallet in
-//            let fiat = getFiatWithId(wallet.attributes?.fiatID ?? "")
-//            let price = Double(wallet.attributes. ?? "") ?? 0.0
-//            let balance = Double(fiat.attributes?.balance ?? "") ?? 0.0
-//
-//            accumulatedBalance += price*balance
-//        })
-//
-//        return accumulatedBalance
-//    }
+    func toViewModels() -> WelcomeViewModels {
+
+        // AssetsViewModel
+        let cryptoAssets: [AssetsViewModel.Asset] = cryptocoins?.compactMap {
+            $0.toViewModel(isMetal: false)
+        } ?? []
+
+        let metalAssets: [AssetsViewModel.Asset] = commodities?.compactMap {
+            $0.toViewModel(isMetal: true)
+        } ?? []
+
+        let fiatAssets: [AssetsViewModel.Asset] = fiats?.compactMap {
+            $0.toViewModel()
+        } ?? []
+
+        let assetsViewModel = AssetsViewModel(cryptocoins: cryptoAssets, metals: metalAssets, fiats: fiatAssets)
+
+        // Wallets View Model
+        var wallets = wallets?.compactMap {
+            $0.toViewModel(from: self, isMetal: false)
+        } ?? []
+        wallets.sort { $0.eurBalance > $1.eurBalance }
+
+        var metalWallets = commodityWallets?.compactMap {
+            $0.toViewModel(from: self, isMetal: true)
+        } ?? []
+        metalWallets.sort { $0.eurBalance > $1.eurBalance }
+
+        var fiatWallets = fiatwallets?.compactMap {
+            $0.toViewModel(from: self, userInterfaceStyle: .dark)
+        } ?? []
+        fiatWallets.sort { $0.eurBalance > $1.eurBalance }
+
+        let walletsViewModel = WalletsViewModel(cryptoWallets: wallets, metalWallets: metalWallets, fiatWallets: fiatWallets)
+
+        return WelcomeViewModels(assetsViewModel, walletsViewModel)
+    }
 }
 
 extension Wallet {
     func toViewModel(from data: DataAttributes,
                      isMetal: Bool,
-                     userInterfaceStyle: UIUserInterfaceStyle) -> WalletsViewModel.Wallet? {
+                     userInterfaceStyle: UIUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle) -> WalletsViewModel.Wallet? {
         guard !(attributes?.deleted ?? true) else {
             return nil
         }
@@ -89,7 +100,12 @@ extension Wallet {
         let crypto = isMetal ? data.getCommodityWithId(attributes?.cryptocoinID ?? "") : data.getCryptoWithId(attributes?.cryptocoinID ?? "")
         let imageURL = crypto?.logoImageURL(userInterfaceStyle: userInterfaceStyle)
 
-        return WalletsViewModel.Wallet(balance: attributes?.balance ?? "",
+        let avgPrice = Double(crypto?.attributes?.avgPrice ?? "") ?? 0.0
+        let balance = Double(attributes?.balance ?? "") ?? 0.0
+        let eurBalance = avgPrice * balance
+
+        return WalletsViewModel.Wallet(eurBalance: eurBalance,
+                                       balance: attributes?.balance ?? "",
                                        symbol: attributes?.cryptocoinSymbol ?? "",
                                        name: attributes?.name ?? "",
                                        logoURL: imageURL,
@@ -104,7 +120,14 @@ extension Fiatwallet {
 
         let fiat = data.getFiatWithId(attributes?.fiatID ?? "")
         let imageURL = fiat?.logoImageURL(userInterfaceStyle: userInterfaceStyle)
-        return WalletsViewModel.Wallet(balance: self.attributes?.balance ?? "",
+
+        let balance = Double(attributes?.balance ?? "") ?? 0.0
+        let eurRate = Double(fiat?.attributes?.toEurRate ?? "") ?? 0.0
+
+        let eurBalance = balance * eurRate
+
+        return WalletsViewModel.Wallet(eurBalance: eurBalance,
+                                       balance: self.attributes?.balance ?? "",
                                        symbol: self.attributes?.fiatSymbol ?? "",
                                        name: self.attributes?.name ?? "",
                                        logoURL: imageURL,
