@@ -6,6 +6,7 @@ target 'BitpandaChallenge' do
   use_frameworks!
   pod 'Kingfisher', '~> 7.0'
   pod 'SVGKit'
+  pod 'lottie-ios'
 
   # Pods for BitpandaChallenge
 

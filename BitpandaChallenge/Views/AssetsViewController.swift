@@ -15,7 +15,7 @@ class AssetsViewController: UITableViewController {
         case list
     }
     private let segmentedControl: UISegmentedControl = {
-        let control = UISegmentedControl(items: ["Cryptocurrencies", "Metals", "Fiats"])
+        let control = UISegmentedControl(items: AssetsViewModel.Filter.allCases.map {$0.title})
         control.selectedSegmentIndex = 0
         control.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         control.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .touchUpInside)
@@ -33,7 +33,7 @@ class AssetsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Assets"
+        navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
 
         tableView.register(CommodityTableViewCell.self, forCellReuseIdentifier: "CommodityTableViewCell")
@@ -110,11 +110,6 @@ class AssetsViewController: UITableViewController {
         cell.configureCell(asset: viewModel.cryptocoins[indexPath.row])
 
         return cell
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

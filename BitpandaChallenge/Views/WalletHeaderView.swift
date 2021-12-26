@@ -14,7 +14,7 @@ class WalletHeaderView: UIView {
         label.heightAnchor.constraint(equalToConstant: 16.0).isActive = true
         label.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         label.textAlignment = .center
-        label.text = "TOTAL BALANCE:"
+        label.text = "total_balance".localized
         return label
     }()
 

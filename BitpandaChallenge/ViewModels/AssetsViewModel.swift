@@ -5,9 +5,21 @@ final class AssetsViewModel {
     let metals: [Asset]
     let fiats: [Asset]
     var activeFilter: Filter = .crypto
+    let title: String = "assets".localized
 
-    enum Filter: Int {
+    enum Filter: Int, CaseIterable {
         case crypto = 1, commodity, fiat
+
+        var title: String {
+            switch self {
+            case .crypto:
+                return "crypto".localized
+            case .commodity:
+                return "metals".localized
+            case .fiat:
+                return "fiats".localized
+            }
+        }
     }
 
     struct Asset {

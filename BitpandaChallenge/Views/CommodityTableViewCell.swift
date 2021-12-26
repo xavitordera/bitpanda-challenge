@@ -26,12 +26,25 @@ class CommodityTableViewCell: UITableViewCell {
         return imgView
     }()
 
+    private let defaultWalletIcon: UIImageView = {
+        let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFit
+        imgView.clipsToBounds = true
+        imgView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        imgView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imgView.image = UIImage(systemName: "star.fill")
+        imgView.tintColor = .systemGray
+        imgView.isHidden = true
+        return imgView
+    }()
+
     override func prepareForReuse() {
         super.prepareForReuse()
         logoView.image = nil
         titleLabel.text = nil
         priceLabel.text = nil
         backgroundColor = .systemBackground
+        defaultWalletIcon.isHidden = true
     }
 
     func configureCell(asset: AssetsViewModel.Asset) {
@@ -50,15 +63,15 @@ class CommodityTableViewCell: UITableViewCell {
         priceLabel.text = wallet.balance.formattedPrice(currencyCode: wallet.symbol, precision: wallet.walletType == .fiat ? 2 : 4)
 
         if wallet.isDefault {
-            backgroundColor = .lightGray
+            defaultWalletIcon.isHidden = false
         }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        let stackViewTitle = UIStackView(arrangedSubviews: [logoView, titleLabel])
-        stackViewTitle.distribution = .equalSpacing
+        let stackViewTitle = UIStackView(arrangedSubviews: [logoView, titleLabel, defaultWalletIcon])
+        stackViewTitle.distribution = .fill
         stackViewTitle.axis = .horizontal
         stackViewTitle.alignment = .center
         stackViewTitle.spacing = 10

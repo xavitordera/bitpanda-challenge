@@ -6,6 +6,8 @@ final class WalletsViewModel {
     private let metalWallets: [Wallet]
     private let fiatWallets: [Wallet]
 
+    let title = "wallets".localized
+
     lazy var totalBalance: String? = {
         var accumlatedBalance = 0.0
         cryptoWallets.forEach { accumlatedBalance += $0.eurBalance }
@@ -34,11 +36,11 @@ final class WalletsViewModel {
         var sectionTitle: String {
             switch self {
             case .crypto:
-                return "Cryptocurrencies"
+                return "crypto".localized
             case .metal:
-                return "Metals"
+                return "metals".localized
             case .fiat:
-                return "Fiats"
+                return "fiats".localized
             }
         }
 

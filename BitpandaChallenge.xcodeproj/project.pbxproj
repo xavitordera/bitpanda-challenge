@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2AABB3084CC1513899E28AEF /* Pods_BitpandaChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6864673F204AEDFA470F1 /* Pods_BitpandaChallenge.framework */; };
 		2FD0CCCE7EB425251D588F53 /* Pods_BitpandaChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727ED16A710837BACDACB460 /* Pods_BitpandaChallengeTests.framework */; };
+		491EA2A4277883B300A4382B /* crypto_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 491EA2A3277883B300A4382B /* crypto_image.png */; };
+		491EA2A52778842500A4382B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 491EA2A72778842500A4382B /* Localizable.strings */; };
 		49608EA32774A07C0024C481 /* CommodityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */; };
 		49608EA9277517210024C481 /* KF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA8277517210024C481 /* KF+Utils.swift */; };
 		49CDCCBB27722D2E00C17603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBA27722D2E00C17603 /* AppDelegate.swift */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		038C36BE1F573618DDF162DA /* Pods-BitpandaChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaChallengeTests/Pods-BitpandaChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0C11B79D19D279FCDD392491 /* Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaChallenge-BitpandaChallengeUITests/Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		491EA2A3277883B300A4382B /* crypto_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crypto_image.png; sourceTree = "<group>"; };
+		491EA2A62778842500A4382B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityTableViewCell.swift; sourceTree = "<group>"; };
 		49608EA8277517210024C481 /* KF+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KF+Utils.swift"; sourceTree = "<group>"; };
 		49CDCCB727722D2E00C17603 /* BitpandaChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitpandaChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,9 +187,11 @@
 		49CDCCEA27722E7300C17603 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				491EA2A3277883B300A4382B /* crypto_image.png */,
 				49CDCCEB27722E9200C17603 /* Mastrerdata.json */,
 				49CDCCC827722D3200C17603 /* Info.plist */,
 				49CDCCC327722D3200C17603 /* Assets.xcassets */,
+				491EA2A72778842500A4382B /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -365,8 +371,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CDCCFA27723F9700C17603 /* Launch Screen.storyboard in Resources */,
+				491EA2A52778842500A4382B /* Localizable.strings in Resources */,
 				49CDCCEC27722E9200C17603 /* Mastrerdata.json in Resources */,
 				49CDCCC427722D3200C17603 /* Assets.xcassets in Resources */,
+				491EA2A4277883B300A4382B /* crypto_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +551,17 @@
 			targetProxy = 49CDCCD827722D3200C17603 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		491EA2A72778842500A4382B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				491EA2A62778842500A4382B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		49CDCCDF27722D3300C17603 /* Debug */ = {

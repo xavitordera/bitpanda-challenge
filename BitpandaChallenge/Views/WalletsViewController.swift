@@ -28,8 +28,7 @@ class WalletsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Wallets"
-        navigationItem.title = "Wallets"
+        navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
 
         tableView.register(CommodityTableViewCell.self, forCellReuseIdentifier: "CommodityTableViewCell")

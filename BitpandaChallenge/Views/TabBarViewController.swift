@@ -34,18 +34,18 @@ class TabBarViewController: UITabBarController {
     }
 
     func setupControllers() {
-        guard let welcomeData = welcomeData else { return }
+        guard let (assetsViewModel, walletsViewModel) = welcomeData else { return }
         // Create Tab one
-        let tabOne = UINavigationController(rootViewController: AssetsViewController(viewModel: welcomeData.0))
-        let tabOneBarItem = UITabBarItem(title: "Assets",
+        let tabOne = UINavigationController(rootViewController: AssetsViewController(viewModel: assetsViewModel))
+        let tabOneBarItem = UITabBarItem(title: assetsViewModel.title,
                                          image: UIImage(systemName: "bitcoinsign.circle"),
                                          selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
 
         tabOne.tabBarItem = tabOneBarItem
 
         // Create Tab two
-        let tabTwo = UINavigationController(rootViewController: WalletsViewController(viewModel: welcomeData.1))
-        let tabTwoBarItem2 = UITabBarItem(title: "Wallets",
+        let tabTwo = UINavigationController(rootViewController: WalletsViewController(viewModel: walletsViewModel))
+        let tabTwoBarItem2 = UITabBarItem(title: walletsViewModel.title,
                                           image: UIImage(systemName: "bag"),
                                           selectedImage: UIImage(systemName: "bag.fill"))
 
