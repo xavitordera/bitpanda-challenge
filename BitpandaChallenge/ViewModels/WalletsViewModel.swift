@@ -61,6 +61,10 @@ final class WalletsViewModel {
         let isDefault: Bool
         let walletType: WalletType
 
+        var formattedBalance: String? {
+            balance.formattedPrice(currencyCode: symbol, precision: walletType == .fiat ? 2 : 4)
+        }
+
         enum WalletType {
             case crypto, metal, fiat
         }

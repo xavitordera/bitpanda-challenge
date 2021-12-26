@@ -10,9 +10,10 @@ extension Commodity {
         }
     }
 
-    func toViewModel(isMetal: Bool, style: UIUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle) -> AssetsViewModel.Asset {
+    func toViewModel(isMetal: Bool, style: UIUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle,
+                     locale: Locale = Locale.current) -> AssetsViewModel.Asset {
         AssetsViewModel.Asset(title: attributes?.name ?? "",
-                              price: attributes?.avgPrice?.formattedPrice(precision: attributes?.precisionForFiatPrice ?? 2) ?? "",
+                              price: attributes?.avgPrice?.formattedPrice(locale: locale, precision: attributes?.precisionForFiatPrice ?? 2) ?? "",
                               logoURL: logoImageURL(userInterfaceStyle: style),
                               type: isMetal ? .metal : .crypto)
     }

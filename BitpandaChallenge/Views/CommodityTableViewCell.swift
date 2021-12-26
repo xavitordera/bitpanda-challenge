@@ -59,7 +59,7 @@ class CommodityTableViewCell: UITableViewCell {
                              placeholder: UIImage(systemName: "bitcoinsign.circle"),
                              options: [.processor(SVGImgProcessor())])
         titleLabel.text = wallet.name
-        priceLabel.text = wallet.balance.formattedPrice(currencyCode: wallet.symbol, precision: wallet.walletType == .fiat ? 2 : 4)
+        priceLabel.text = wallet.formattedBalance
 
         if wallet.isDefault {
             defaultWalletIcon.isHidden = false

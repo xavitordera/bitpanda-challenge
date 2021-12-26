@@ -30,10 +30,11 @@ class ModelTests: XCTestCase {
 
     func testCommodityToViewModel() {
         // Given
+        let locale = Locale(identifier: "us")
         let commodity = Commodity.mock()
         let expectedViewModel = AssetsViewModel.Asset(title: "name", price: "€100.00", logoURL: URL(string: "http://logo.com"), type: .metal)
         // When
-        let viewModel = commodity.toViewModel(isMetal: true, style: .light)
+        let viewModel = commodity.toViewModel(isMetal: true, style: .light, locale: locale)
         // Then
         XCTAssertEqual(viewModel, expectedViewModel)
     }
