@@ -3,28 +3,24 @@ PODS:
     - CocoaLumberjack/Core (= 3.7.4)
   - CocoaLumberjack/Core (3.7.4)
   - Kingfisher (7.1.2)
-  - lottie-ios (3.3.0)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 7.0)
-  - lottie-ios
   - SVGKit
 
 SPEC REPOS:
   trunk:
     - CocoaLumberjack
     - Kingfisher
-    - lottie-ios
     - SVGKit
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
-  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
 
-PODFILE CHECKSUM: 527828a26a3854b469795612f5518dfe23162a75
+PODFILE CHECKSUM: 6bde91d9de00c09586dc54a208cedfd9fc59c1cd
 
 COCOAPODS: 1.10.2
