@@ -22,7 +22,7 @@ final class AssetsViewModel {
         }
     }
 
-    struct Asset {
+    struct Asset: Equatable {
         let title: String
         let price: String
         let logoURL: URL?
@@ -39,4 +39,14 @@ final class AssetsViewModel {
        self.fiats = fiats
        self.activeFilter = activeFilter
    }
+}
+
+
+extension AssetsViewModel: Equatable {
+    static func == (lhs: AssetsViewModel, rhs: AssetsViewModel) -> Bool {
+        lhs.cryptocoins == rhs.cryptocoins &&
+        lhs.metals == rhs.metals &&
+        lhs.fiats == rhs.fiats &&
+        lhs.activeFilter == rhs.activeFilter
+    }
 }

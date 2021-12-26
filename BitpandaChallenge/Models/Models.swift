@@ -99,7 +99,7 @@ struct FiatAttributes: Codable {
     let toEurRate: String?
     let symbolCharacter: String?
     let hasWallets: Bool?
-    let logo, logoDark, logoWhite, logoColor: String?
+    let logo, logoDark: String?
 
     enum CodingKeys: String, CodingKey {
         case symbol, name, precision
@@ -108,8 +108,6 @@ struct FiatAttributes: Codable {
         case hasWallets = "has_wallets"
         case logo
         case logoDark = "logo_dark"
-        case logoWhite = "logo_white"
-        case logoColor = "logo_color"
     }
 }
 

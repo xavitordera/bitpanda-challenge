@@ -43,7 +43,6 @@ class CommodityTableViewCell: UITableViewCell {
         logoView.image = nil
         titleLabel.text = nil
         priceLabel.text = nil
-        backgroundColor = .systemBackground
         defaultWalletIcon.isHidden = true
     }
 

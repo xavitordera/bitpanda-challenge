@@ -11,6 +11,8 @@
 		2FD0CCCE7EB425251D588F53 /* Pods_BitpandaChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727ED16A710837BACDACB460 /* Pods_BitpandaChallengeTests.framework */; };
 		491EA2A4277883B300A4382B /* crypto_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 491EA2A3277883B300A4382B /* crypto_image.png */; };
 		491EA2A52778842500A4382B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 491EA2A72778842500A4382B /* Localizable.strings */; };
+		491EA2A92778867800A4382B /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EA2A82778867800A4382B /* ModelTests.swift */; };
+		491EA2AB277886CE00A4382B /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EA2AA277886CE00A4382B /* TestHelpers.swift */; };
 		49608EA32774A07C0024C481 /* CommodityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */; };
 		49608EA9277517210024C481 /* KF+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49608EA8277517210024C481 /* KF+Utils.swift */; };
 		49CDCCBB27722D2E00C17603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBA27722D2E00C17603 /* AppDelegate.swift */; };
@@ -18,8 +20,6 @@
 		49CDCCBF27722D2F00C17603 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCBE27722D2F00C17603 /* TabBarViewController.swift */; };
 		49CDCCC427722D3200C17603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCC327722D3200C17603 /* Assets.xcassets */; };
 		49CDCCD227722D3200C17603 /* BitpandaChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCD127722D3200C17603 /* BitpandaChallengeTests.swift */; };
-		49CDCCDC27722D3200C17603 /* BitpandaChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCDB27722D3200C17603 /* BitpandaChallengeUITests.swift */; };
-		49CDCCDE27722D3300C17603 /* BitpandaChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCDD27722D3200C17603 /* BitpandaChallengeUITestsLaunchTests.swift */; };
 		49CDCCEC27722E9200C17603 /* Mastrerdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 49CDCCEB27722E9200C17603 /* Mastrerdata.json */; };
 		49CDCCF627723CB300C17603 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCF527723CB300C17603 /* WalletsViewController.swift */; };
 		49CDCCF827723CDD00C17603 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDCCF727723CDD00C17603 /* AssetsViewController.swift */; };
@@ -32,18 +32,10 @@
 		49CF3A6B2777292E00FD6B75 /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF3A6A2777292E00FD6B75 /* WalletHeaderView.swift */; };
 		49CF3A6D27773BB500FD6B75 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF3A6C27773BB500FD6B75 /* String+Utils.swift */; };
 		49CF3A6F27773D2500FD6B75 /* WelcomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF3A6E27773D2500FD6B75 /* WelcomeRepository.swift */; };
-		7D2F2E9EE971944D23226770 /* Pods_BitpandaChallenge_BitpandaChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A854ED2D8DA215343EF4D8 /* Pods_BitpandaChallenge_BitpandaChallengeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		49CDCCCE27722D3200C17603 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49CDCCAF27722D2E00C17603 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 49CDCCB627722D2E00C17603;
-			remoteInfo = BitpandaChallenge;
-		};
-		49CDCCD827722D3200C17603 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49CDCCAF27722D2E00C17603 /* Project object */;
 			proxyType = 1;
@@ -57,6 +49,8 @@
 		0C11B79D19D279FCDD392491 /* Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaChallenge-BitpandaChallengeUITests/Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		491EA2A3277883B300A4382B /* crypto_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crypto_image.png; sourceTree = "<group>"; };
 		491EA2A62778842500A4382B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		491EA2A82778867800A4382B /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		491EA2AA277886CE00A4382B /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		49608EA22774A07C0024C481 /* CommodityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityTableViewCell.swift; sourceTree = "<group>"; };
 		49608EA8277517210024C481 /* KF+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KF+Utils.swift"; sourceTree = "<group>"; };
 		49CDCCB727722D2E00C17603 /* BitpandaChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitpandaChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,9 +61,6 @@
 		49CDCCC827722D3200C17603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CDCCCD27722D3200C17603 /* BitpandaChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitpandaChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDCCD127722D3200C17603 /* BitpandaChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitpandaChallengeTests.swift; sourceTree = "<group>"; };
-		49CDCCD727722D3200C17603 /* BitpandaChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitpandaChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		49CDCCDB27722D3200C17603 /* BitpandaChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitpandaChallengeUITests.swift; sourceTree = "<group>"; };
-		49CDCCDD27722D3200C17603 /* BitpandaChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitpandaChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		49CDCCEB27722E9200C17603 /* Mastrerdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mastrerdata.json; sourceTree = "<group>"; };
 		49CDCCF527723CB300C17603 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
 		49CDCCF727723CDD00C17603 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
@@ -108,14 +99,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49CDCCD427722D3200C17603 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D2F2E9EE971944D23226770 /* Pods_BitpandaChallenge_BitpandaChallengeUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -134,7 +117,6 @@
 			children = (
 				49CDCCB927722D2E00C17603 /* BitpandaChallenge */,
 				49CDCCD027722D3200C17603 /* BitpandaChallengeTests */,
-				49CDCCDA27722D3200C17603 /* BitpandaChallengeUITests */,
 				49CDCCB827722D2E00C17603 /* Products */,
 				B4E0E1FD55C8DCE0612CCFC4 /* Pods */,
 				818E84370EAEDE6BEA121782 /* Frameworks */,
@@ -146,7 +128,6 @@
 			children = (
 				49CDCCB727722D2E00C17603 /* BitpandaChallenge.app */,
 				49CDCCCD27722D3200C17603 /* BitpandaChallengeTests.xctest */,
-				49CDCCD727722D3200C17603 /* BitpandaChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,17 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				49CDCCD127722D3200C17603 /* BitpandaChallengeTests.swift */,
+				491EA2A82778867800A4382B /* ModelTests.swift */,
+				491EA2AA277886CE00A4382B /* TestHelpers.swift */,
 			);
 			path = BitpandaChallengeTests;
-			sourceTree = "<group>";
-		};
-		49CDCCDA27722D3200C17603 /* BitpandaChallengeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				49CDCCDB27722D3200C17603 /* BitpandaChallengeUITests.swift */,
-				49CDCCDD27722D3200C17603 /* BitpandaChallengeUITestsLaunchTests.swift */,
-			);
-			path = BitpandaChallengeUITests;
 			sourceTree = "<group>";
 		};
 		49CDCCEA27722E7300C17603 /* Resources */ = {
@@ -300,26 +274,6 @@
 			productReference = 49CDCCCD27722D3200C17603 /* BitpandaChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		49CDCCD627722D3200C17603 /* BitpandaChallengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49CDCCE727722D3300C17603 /* Build configuration list for PBXNativeTarget "BitpandaChallengeUITests" */;
-			buildPhases = (
-				961272F1E5E63091C496F118 /* [CP] Check Pods Manifest.lock */,
-				49CDCCD327722D3200C17603 /* Sources */,
-				49CDCCD427722D3200C17603 /* Frameworks */,
-				49CDCCD527722D3200C17603 /* Resources */,
-				815DF4AC152D670AA74923F7 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				49CDCCD927722D3200C17603 /* PBXTargetDependency */,
-			);
-			name = BitpandaChallengeUITests;
-			productName = BitpandaChallengeUITests;
-			productReference = 49CDCCD727722D3200C17603 /* BitpandaChallengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -334,10 +288,6 @@
 						CreatedOnToolsVersion = 13.1;
 					};
 					49CDCCCC27722D3200C17603 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 49CDCCB627722D2E00C17603;
-					};
-					49CDCCD627722D3200C17603 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 49CDCCB627722D2E00C17603;
 					};
@@ -360,7 +310,6 @@
 			targets = (
 				49CDCCB627722D2E00C17603 /* BitpandaChallenge */,
 				49CDCCCC27722D3200C17603 /* BitpandaChallengeTests */,
-				49CDCCD627722D3200C17603 /* BitpandaChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -379,13 +328,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		49CDCCCB27722D3200C17603 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49CDCCD527722D3200C17603 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,45 +353,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BitpandaChallenge-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		815DF4AC152D670AA74923F7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitpandaChallenge-BitpandaChallengeUITests/Pods-BitpandaChallenge-BitpandaChallengeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitpandaChallenge-BitpandaChallengeUITests/Pods-BitpandaChallenge-BitpandaChallengeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitpandaChallenge-BitpandaChallengeUITests/Pods-BitpandaChallenge-BitpandaChallengeUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		961272F1E5E63091C496F118 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BitpandaChallenge-BitpandaChallengeUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -525,15 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CDCCD227722D3200C17603 /* BitpandaChallengeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49CDCCD327722D3200C17603 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				49CDCCDC27722D3200C17603 /* BitpandaChallengeUITests.swift in Sources */,
-				49CDCCDE27722D3300C17603 /* BitpandaChallengeUITestsLaunchTests.swift in Sources */,
+				491EA2A92778867800A4382B /* ModelTests.swift in Sources */,
+				491EA2AB277886CE00A4382B /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,11 +440,6 @@
 			isa = PBXTargetDependency;
 			target = 49CDCCB627722D2E00C17603 /* BitpandaChallenge */;
 			targetProxy = 49CDCCCE27722D3200C17603 /* PBXContainerItemProxy */;
-		};
-		49CDCCD927722D3200C17603 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 49CDCCB627722D2E00C17603 /* BitpandaChallenge */;
-			targetProxy = 49CDCCD827722D3200C17603 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -784,52 +675,6 @@
 			};
 			name = Release;
 		};
-		49CDCCE827722D3300C17603 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C11B79D19D279FCDD392491 /* Pods-BitpandaChallenge-BitpandaChallengeUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xaviertordera.BitpandaChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BitpandaChallenge;
-			};
-			name = Debug;
-		};
-		49CDCCE927722D3300C17603 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1163DECB59295CEC6F08994 /* Pods-BitpandaChallenge-BitpandaChallengeUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xaviertordera.BitpandaChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BitpandaChallenge;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -856,15 +701,6 @@
 			buildConfigurations = (
 				49CDCCE527722D3300C17603 /* Debug */,
 				49CDCCE627722D3300C17603 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		49CDCCE727722D3300C17603 /* Build configuration list for PBXNativeTarget "BitpandaChallengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				49CDCCE827722D3300C17603 /* Debug */,
-				49CDCCE927722D3300C17603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

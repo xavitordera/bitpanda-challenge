@@ -30,7 +30,7 @@ final class WalletsViewModel {
        self.fiatWallets = fiatWallets
    }
 
-    enum Section {
+    enum Section: Equatable {
         case crypto([Wallet]), metal([Wallet]), fiat([Wallet])
 
         var sectionTitle: String {
@@ -52,7 +52,7 @@ final class WalletsViewModel {
         }
     }
 
-    struct Wallet {
+    struct Wallet: Equatable {
         let eurBalance: Double
         let balance: String
         let symbol: String
@@ -66,4 +66,10 @@ final class WalletsViewModel {
         }
     }
 
+}
+
+extension WalletsViewModel: Equatable {
+    static func == (lhs: WalletsViewModel, rhs: WalletsViewModel) -> Bool {
+        lhs.sections == rhs.sections
+    }
 }
